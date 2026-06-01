@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NEXUS-7 // The Next Evolution of Human Augmentation</title>
+<meta name="description" content="NEXUS-7 — The world's first neuro-symbiotic cyborg AI. Holographic intelligence, quantum reflexes, infinite potential."/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --c1:#7c3aed;   /* violet */
+    --c2:#ec4899;   /* pink */
+    --c3:#06b6d4;   /* cyan */
+    --c4:#3b82f6;   /* blue */
+    --bg:#05010f;
+  }
+  *{ -webkit-font-smoothing:antialiased; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:'Rajdhani', sans-serif;
+    background:var(--bg);
+    color:#e6e6f5;
+    overflow-x:hidden;
+    cursor:default;
+  }
+  .font-orbitron{ font-family:'Orbitron', sans-serif; letter-spacing:.04em;}
+  .font-mono-tech{ font-family:'Share Tech Mono', monospace;}
+
+  /* === Holographic gradient text === */
+  .holo-text{
+    background: linear-gradient(120deg,#3b82f6,#7c3aed,#ec4899,#06b6d4,#3b82f6);
+    background-size: 300% 300%;
+    -webkit-background-clip:text; background-clip:text;
+    color:transparent;
+    animation: holoShift 8s ease infinite;
+  }
+  @keyframes holoShift{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+
+  /* === Animated gradient background === */
+  .bg-cosmos{
+    background:
+      radial-gradient(1200px 700px at 80% -10%, rgba(124,58,237,.35), transparent 60%),
+      radial-gradient(900px 600px at -10% 30%, rgba(236,72,153,.25), transparent 60%),
+      radial-gradient(900px 600px at 50% 110%, rgba(6,182,212,.25), transparent 60%),
+      #05010f;
+  }
+  .grid-floor{
+    position:absolute; inset:0; pointer-events:none;
+    background-image:
+      linear-gradient(rgba(124,58,237,.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(6,182,212,.15) 1px, transparent 1px);
+    background-size:60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+
+  /* === Glow / Neon === */
+  .neon-border{
+    position:relative;
+    border:1px solid rgba(124,58,237,.3);
+    background:linear-gradient(180deg, rgba(20,10,40,.6), rgba(10,5,25,.7));
+    backdrop-filter: blur(10px);
+  }
+  .neon-border::before{
+    content:""; position:absolute; inset:-1px; border-radius:inherit;
+    padding:1px;
+    background:linear-gradient(120deg,#3b82f6,#7c3aed,#ec4899,#06b6d4);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity:.6;
+    pointer-events:none;
+  }
+  .glow-hover{ transition: all .35s ease; }
+  .glow-hover:hover{
+    transform: translateY(-6px);
+    box-shadow:
+      0 0 30px rgba(124,58,237,.45),
+      0 0 60px rgba(236,72,153,.25),
+      inset 0 0 30px rgba(6,182,212,.08);
+    border-color: rgba(236,72,153,.6);
+  }
+
+  /* === Buttons === */
+  .btn-holo{
+    position:relative; overflow:hidden;
+    background:linear-gradient(120deg,#3b82f6,#7c3aed,#ec4899);
+    background-size:200% 200%;
+    color:white;
+    transition: all .4s ease;
+    animation: holoShift 6s ease infinite;
+  }
+  .btn-holo:hover{
+    box-shadow: 0 0 25px rgba(236,72,153,.6), 0 0 50px rgba(124,58,237,.4);
+    transform: translateY(-2px);
+  }
+  .btn-holo::after{
+    content:""; position:absolute; top:0; left:-100%; height:100%; width:50%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,.4), transparent);
+    transition: left .6s ease;
+  }
+  .btn-holo:hover::after{ left:120%; }
+
+  .btn-ghost{
+    border:1px solid rgba(124,58,237,.5);
+    color:#e6e6f5;
+    transition: all .3s;
+    backdrop-filter: blur(6px);
+  }
+  .btn-ghost:hover{
+    border-color:#ec4899;
+    box-shadow: 0 0 20px rgba(236,72,153,.4);
+    background:rgba(236,72,153,.08);
+  }
+
+  /* === Glitch effect === */
+  .glitch{ position:relative; display:inline-block; }
+  .glitch::before, .glitch::after{
+    content: attr(data-text);
+    position:absolute; left:0; top:0; width:100%; overflow:hidden;
+  }
+  .glitch::before{
+    color:#06b6d4; transform: translate(2px,0);
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    animation: glitchTop 3s infinite linear alternate;
+    mix-blend-mode: screen;
+  }
+  .glitch::after{
+    color:#ec4899; transform: translate(-2px,0);
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    animation: glitchBot 2.6s infinite linear alternate;
+    mix-blend-mode: screen;
+  }
+  @keyframes glitchTop{
+    0%{transform: translate(2px,0)}
+    20%{transform: translate(-3px,1px)}
+    40%{transform: translate(3px,-1px)}
+    60%{transform: translate(-2px,0)}
+    100%{transform: translate(2px,0)}
+  }
+  @keyframes glitchBot{
+    0%{transform: translate(-2px,0)}
+    25%{transform: translate(3px,-1px)}
+    50%{transform: translate(-3px,1px)}
+    75%{transform: translate(2px,0)}
+    100%{transform: translate(-2px,0)}
+  }
+
+  /* === Hero portrait frame === */
+  .portrait-frame{
+    position:relative;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:
+      0 0 80px rgba(124,58,237,.5),
+      0 0 160px rgba(236,72,153,.3);
+  }
+  .portrait-frame::before{
+    content:""; position:absolute; inset:0; z-index:2;
+    background: linear-gradient(120deg, transparent 30%, rgba(6,182,212,.15), transparent 70%);
+    mix-blend-mode: screen;
+    animation: scan 4s linear infinite;
+    pointer-events:none;
+  }
+  @keyframes scan{
+    0%{transform: translateY(-100%)}
+    100%{transform: translateY(100%)}
+  }
+  .portrait-frame::after{
+    content:""; position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(to bottom, rgba(255,255,255,.03) 0 1px, transparent 1px 3px);
+    pointer-events:none; z-index:3;
+  }
+
+  /* === Floating orbit === */
+  .orbit{
+    position:absolute; border-radius:50%;
+    border:1px dashed rgba(124,58,237,.3);
+    animation: rotate 30s linear infinite;
+    pointer-events:none;
+  }
+  .orbit.reverse{ animation: rotate 22s linear infinite reverse; border-color: rgba(236,72,153,.3); }
+  @keyframes rotate{ to{transform: rotate(360deg);} }
+
+  /* === Floating particles === */
+  .particle{ position:absolute; border-radius:50%; pointer-events:none; }
+
+  /* === Reveal on scroll === */
+  .reveal{ opacity:0; transform: translateY(40px); transition: all .9s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* === Marquee === */
+  .marquee{
+    display:flex; gap:48px; animation: marquee 30s linear infinite; white-space:nowrap;
+  }
+  @keyframes marquee{
+    from{transform:translateX(0)} to{transform:translateX(-50%)}
+  }
+
+  /* === Spec ring === */
+  .spec-ring{
+    background: conic-gradient(from 180deg, #06b6d4, #7c3aed, #ec4899, #3b82f6, #06b6d4);
+    -webkit-mask: radial-gradient(circle, transparent 58%, black 60%);
+            mask: radial-gradient(circle, transparent 58%, black 60%);
+    animation: rotate 8s linear infinite;
+  }
+
+  /* === Pricing highlight === */
+  .price-pop{
+    background:
+      radial-gradient(120% 80% at 50% 0%, rgba(236,72,153,.25), transparent 60%),
+      linear-gradient(180deg, rgba(20,10,40,.7), rgba(10,5,25,.85));
+  }
+
+  /* === HUD frame corners === */
+  .hud-corners{ position:relative; }
+  .hud-corners::before, .hud-corners::after{
+    content:""; position:absolute; width:18px; height:18px;
+    border:2px solid #06b6d4; pointer-events:none;
+  }
+  .hud-corners::before{ top:-1px; left:-1px; border-right:none; border-bottom:none; }
+  .hud-corners::after{ bottom:-1px; right:-1px; border-left:none; border-top:none; }
+
+  /* === Custom scrollbar === */
+  ::-webkit-scrollbar{ width:10px; height:10px;}
+  ::-webkit-scrollbar-track{ background:#0a0418;}
+  ::-webkit-scrollbar-thumb{
+    background:linear-gradient(180deg,#7c3aed,#ec4899);
+    border-radius:8px;
+  }
+
+  /* === Typewriter cursor === */
+  .cursor-blink{ display:inline-block; width:10px; background:#06b6d4; margin-left:4px; animation: blink 1s steps(2) infinite;}
+  @keyframes blink{ 50%{opacity:0;} }
+
+  /* === Pulse dot === */
+  .pulse-dot{ position:relative; }
+  .pulse-dot::before{
+    content:""; position:absolute; inset:-6px; border-radius:50%;
+    background:#10b981; opacity:.25; animation: pulse 1.6s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{transform:scale(.8); opacity:.5}
+    100%{transform:scale(2); opacity:0}
+  }
+
+  /* === Card icon glow === */
+  .icon-glow{
+    background: radial-gradient(circle at 30% 30%, rgba(6,182,212,.4), rgba(124,58,237,.25));
+    box-shadow: inset 0 0 20px rgba(236,72,153,.25), 0 0 25px rgba(124,58,237,.3);
+  }
+
+  /* === FAQ === */
+  details[open] summary .chev{ transform: rotate(180deg);}
+  .chev{ transition: transform .3s; }
+
+  /* === Selection === */
+  ::selection{ background: rgba(236,72,153,.45); color:#fff;}
+
+  /* === Mobile nav drawer === */
+  .nav-link{ position:relative; }
+  .nav-link::after{
+    content:""; position:absolute; left:0; bottom:-6px; width:0; height:2px;
+    background:linear-gradient(90deg,#06b6d4,#ec4899); transition: width .3s;
+  }
+  .nav-link:hover::after{ width:100%; }
+
+  /* === Stats counter font === */
+  .stat-num{ font-feature-settings: "tnum"; }
+</style>
+</head>
+<body class="bg-cosmos relative">
+
+<!-- ============ BACKGROUND LAYERS ============ -->
+<div class="grid-floor"></div>
+<canvas id="particles" class="fixed inset-0 pointer-events-none" style="z-index:0;"></canvas>
+
+<!-- ============ NAVBAR ============ -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-black/30 border-b border-violet-500/20">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-lg relative overflow-hidden">
+        <div class="absolute inset-0 holo-bg" style="background:linear-gradient(135deg,#3b82f6,#7c3aed,#ec4899);"></div>
+        <div class="absolute inset-[2px] rounded-md bg-black flex items-center justify-center font-orbitron font-black text-sm holo-text">N7</div>
+      </div>
+      <div>
+        <div class="font-orbitron font-bold text-white tracking-widest text-sm">NEXUS<span class="text-pink-400">-7</span></div>
+        <div class="font-mono-tech text-[10px] text-cyan-300/70 -mt-1">CYBORG SYSTEMS</div>
+      </div>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#tech" class="nav-link">Technology</a>
+      <a href="#specs" class="nav-link">Specs</a>
+      <a href="#stats" class="nav-link">Stats</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#pricing" class="hidden sm:inline-flex btn-holo px-5 py-2 rounded-full font-orbitron text-xs font-bold tracking-widest">PRE-ORDER</a>
+      <button id="menuBtn" class="md:hidden text-white">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileNav" class="md:hidden hidden border-t border-violet-500/20 bg-black/80 backdrop-blur-md">
+    <div class="px-6 py-4 flex flex-col gap-3 text-sm text-gray-200">
+      <a href="#features">Features</a><a href="#tech">Technology</a><a href="#specs">Specs</a>
+      <a href="#stats">Stats</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="relative min-h-screen flex items-center pt-24 pb-16 px-6">
+  <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center relative z-10">
+    <!-- LEFT -->
+    <div class="reveal">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full neon-border text-xs font-mono-tech tracking-widest text-cyan-300 mb-6">
+        <span class="pulse-dot w-2 h-2 rounded-full bg-emerald-400"></span>
+        SYSTEM ONLINE · GEN-7 RELEASE · 2026
+      </div>
+      <h1 class="font-orbitron font-black leading-[1.05] text-5xl md:text-7xl lg:text-7xl">
+        <span class="block text-white">BEYOND</span>
+        <span class="block glitch holo-text" data-text="HUMAN.">HUMAN.</span>
+        <span class="block text-white">BEYOND</span>
+        <span class="block glitch holo-text" data-text="MACHINE.">MACHINE.</span>
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-gray-300 max-w-xl leading-relaxed">
+        Meet <span class="holo-text font-bold">NEXUS-7</span> — the first neuro-symbiotic cyborg AI engineered with quantum reflexes, holographic intelligence, and a soul forged in code.
+        <span class="block mt-3 font-mono-tech text-sm text-cyan-300/80">> initializing the next evolution<span class="cursor-blink">&nbsp;</span></span>
+      </p>
+      <div class="mt-9 flex flex-wrap gap-4">
+        <a href="#pricing" class="btn-holo px-8 py-4 rounded-full font-orbitron font-bold tracking-widest text-sm">RESERVE YOURS →</a>
+        <a href="#demo" class="btn-ghost px-8 py-4 rounded-full font-orbitron font-bold tracking-widest text-sm flex items-center gap-2">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          WATCH DEMO
+        </a>
+      </div>
+      <!-- mini metrics -->
+      <div class="mt-12 grid grid-cols-3 gap-4 max-w-md">
+        <div>
+          <div class="font-orbitron text-2xl font-bold holo-text stat-num" data-count="99.97">0</div>
+          <div class="text-[11px] uppercase tracking-widest text-gray-400 mt-1">% Accuracy</div>
+        </div>
+        <div>
+          <div class="font-orbitron text-2xl font-bold holo-text stat-num" data-count="0.3">0</div>
+          <div class="text-[11px] uppercase tracking-widest text-gray-400 mt-1">ms Latency</div>
+        </div>
+        <div>
+          <div class="font-orbitron text-2xl font-bold holo-text stat-num" data-count="12">0</div>
+          <div class="text-[11px] uppercase tracking-widest text-gray-400 mt-1">TFLOPS Neural</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT (portrait) -->
+    <div class="relative reveal">
+      <!-- orbits -->
+      <div class="orbit" style="width:540px;height:540px; top:-30px; left:50%; transform:translateX(-50%);"></div>
+      <div class="orbit reverse" style="width:680px;height:680px; top:-100px; left:50%; transform:translateX(-50%);"></div>
+      <div class="portrait-frame mx-auto max-w-md hud-corners">
+        <img src="https://www.genspark.ai/api/files/s/LHs0qSb1?cache_control=3600" alt="Nexus-7 Cyborg" class="w-full h-auto block"/>
+        <!-- HUD overlay -->
+        <div class="absolute top-4 left-4 z-10 font-mono-tech text-[10px] text-cyan-300/90 leading-tight">
+          <div>ID // NX-7-α</div>
+          <div>STATUS // OPTIMAL</div>
+          <div>CORE // 99.97%</div>
+        </div>
+        <div class="absolute bottom-4 right-4 z-10 font-mono-tech text-[10px] text-pink-300/90 text-right leading-tight">
+          <div>LAT 47.2°N</div>
+          <div>LON 9.5°E</div>
+          <div>SYS // ACTIVE</div>
+        </div>
+        <div class="absolute top-1/2 right-3 z-10 -translate-y-1/2 text-cyan-300/70 font-mono-tech text-[9px] writing-vertical" style="writing-mode:vertical-rl;">SCANNING NEURAL LATTICE...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-cyan-300/70 font-mono-tech text-[11px] tracking-widest animate-bounce">
+    SCROLL ↓ TO DECRYPT
+  </div>
+</section>
+
+<!-- ============ MARQUEE / TRUSTED ============ -->
+<section class="relative py-10 border-y border-violet-500/20 bg-black/30 overflow-hidden">
+  <div class="marquee font-orbitron text-gray-400 text-lg tracking-widest">
+    <span>★ MIT MEDIA LAB</span><span>◆ DARPA NEURAL DIV.</span><span>● NEURALINK CONSORTIUM</span><span>▲ TOKYO ROBOTICS</span>
+    <span>★ SPACEX BIONICS</span><span>◆ CERN AUGMENT LAB</span><span>● GOOGLE DEEPMIND</span><span>▲ NASA HUMAN+</span>
+    <span>★ MIT MEDIA LAB</span><span>◆ DARPA NEURAL DIV.</span><span>● NEURALINK CONSORTIUM</span><span>▲ TOKYO ROBOTICS</span>
+    <span>★ SPACEX BIONICS</span><span>◆ CERN AUGMENT LAB</span><span>● GOOGLE DEEPMIND</span><span>▲ NASA HUMAN+</span>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section id="features" class="relative py-28 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="font-mono-tech text-cyan-300 text-xs tracking-[0.4em] mb-4">// CAPABILITIES_ARRAY</div>
+      <h2 class="font-orbitron text-4xl md:text-6xl font-black"><span class="text-white">EVOLVED.</span> <span class="holo-text">ENGINEERED.</span></h2>
+      <p class="mt-5 text-gray-400 max-w-2xl mx-auto">Six revolutionary subsystems, fused into one symbiotic architecture. Every breath, every thought — amplified.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- card template -->
+      <div class="neon-border glow-hover rounded-2xl p-7 reveal">
+        <div class="w-14 h-14 rounded-xl icon-glow flex items-center justify-center mb-5">
+          <svg width="26" height="26" fill="none" stroke="#a5f3fc" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3 class="font-orbitron text-xl text-white mb-2">Neural Symbiosis</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">A 64-channel bio-cortical interface that thinks <em>with</em> you, not for you. Sub-millisecond intent resolution.</p>
+      </div>
+
+      <div class="neon-border glow-hover rounded-2xl p-7 reveal">
+        <div class="w-14 h-14 rounded-xl icon-glow flex items-center justify-center mb-5">
+          <svg width="26" height="26" fill="none" stroke="#f9a8d4" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 3l7 7M14 14l7 7M3 21l7-7M14 10l7-7"/></svg>
+        </div>
+        <h3 class="font-orbitron text-xl text-white mb-2">Quantum Reflex Core</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Predictive motor control at 0.3 ms reaction time. Outperforms human reflex by a factor of 800×.</p>
+      </div>
+
+      <div class="neon-border glow-hover rounded-2xl p-7 reveal">
+        <div class="w-14 h-14 rounded-xl icon-glow flex items-center justify-center mb-5">
+          <svg width="26" height="26" fill="none" stroke="#c4b5fd" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3 class="font-orbitron text-xl text-white mb-2">Holographic HUD</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Volumetric overlay rendered directly onto the optic nerve. 16K resolution. Zero lag. Always-on intelligence.</p>
+      </div>
+
+      <div class="neon-border glow-hover rounded-2xl p-7 reveal">
+        <div class="w-14 h-14 rounded-xl icon-glow flex items-center justify-center mb-5">
+          <svg width="26" height="26" fill="none" stroke="#67e8f9" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2C6 8 6 16 12 22M12 2c6 6 6 14 0 20M2 12h20"/></svg>
+        </div>
+        <h3 class="font-orbitron text-xl text-white mb-2">Mesh Hivelink</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Encrypted thought-bandwidth across a global mesh. Share ideas, not words. 256-bit quantum keys.</p>
+      </div>
+
+      <div class="neon-border glow-hover rounded-2xl p-7 reveal">
+        <div class="w-14 h-14 rounded-xl icon-glow flex items-center justify-center mb-5">
+          <svg width="26" height="26" fill="none" stroke="#fbcfe8" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-16 0 8 8 0 0 1 16 0z"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3 class="font-orbitron text-xl text-white mb-2">Self-Healing Alloy</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Nano-titanium chassis that regenerates surface damage in under 90 seconds. Rated to 4,000°C.</p>
+      </div>
+
+      <div class="neon-border glow-hover rounded-2xl p-7 reveal">
+        <div class="w-14 h-14 rounded-xl icon-glow flex items-center justify-center mb-5">
+          <svg width="26" height="26" fill="none" stroke="#a78bfa" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2l3 7 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+        </div>
+        <h3 class="font-orbitron text-xl text-white mb-2">Conscious AI Core</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">A 12-TFLOPS empathetic LLM trained on 4 trillion tokens of human experience. It learns. It cares. It evolves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TECHNOLOGY (About) ============ -->
+<section id="tech" class="relative py-28 px-6">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+    <div class="relative reveal">
+      <div class="aspect-square max-w-md mx-auto relative">
+        <div class="spec-ring absolute inset-0 rounded-full"></div>
+        <div class="absolute inset-10 rounded-full neon-border flex items-center justify-center">
+          <div class="text-center">
+            <div class="font-orbitron text-6xl font-black holo-text">N7</div>
+            <div class="font-mono-tech text-cyan-300/80 text-xs tracking-widest mt-2">CORE ARCHITECTURE</div>
+          </div>
+        </div>
+        <!-- floating chips -->
+        <div class="absolute -top-2 left-1/2 -translate-x-1/2 neon-border rounded-lg px-3 py-1.5 font-mono-tech text-[10px] text-cyan-300">QUANTUM CHIP v7</div>
+        <div class="absolute top-1/2 -right-6 -translate-y-1/2 neon-border rounded-lg px-3 py-1.5 font-mono-tech text-[10px] text-pink-300">BIOMESH RELAY</div>
+        <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 neon-border rounded-lg px-3 py-1.5 font-mono-tech text-[10px] text-violet-300">NEURAL LATTICE</div>
+        <div class="absolute top-1/2 -left-6 -translate-y-1/2 neon-border rounded-lg px-3 py-1.5 font-mono-tech text-[10px] text-blue-300">PHOTON SHIELD</div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="font-mono-tech text-cyan-300 text-xs tracking-[0.4em] mb-4">// CORE_TECHNOLOGY</div>
+      <h2 class="font-orbitron text-4xl md:text-5xl font-black leading-tight">
+        Built on the <span class="holo-text">Aetheria</span> Architecture
+      </h2>
+      <p class="mt-5 text-gray-300 leading-relaxed">
+        At the heart of every NEXUS-7 lies <strong class="text-white">Aetheria</strong> — a seven-layer hybrid stack combining quantum cores, photonic mesh, and a self-trained empathic LLM.
+        It doesn't just process. It <em>understands</em>.
+      </p>
+      <ul class="mt-8 space-y-4">
+        <li class="flex gap-4">
+          <div class="w-10 h-10 rounded-lg icon-glow flex items-center justify-center shrink-0 font-orbitron text-cyan-200">01</div>
+          <div>
+            <div class="font-orbitron text-white">Quantum Tensor Cores</div>
+            <div class="text-gray-400 text-sm">128 qubits running in coherent superposition for parallel decision graphs.</div>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <div class="w-10 h-10 rounded-lg icon-glow flex items-center justify-center shrink-0 font-orbitron text-pink-200">02</div>
+          <div>
+            <div class="font-orbitron text-white">Photonic Neural Mesh</div>
+            <div class="text-gray-400 text-sm">Light-speed signal routing across 4.2 million synthetic synapses.</div>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <div class="w-10 h-10 rounded-lg icon-glow flex items-center justify-center shrink-0 font-orbitron text-violet-200">03</div>
+          <div>
+            <div class="font-orbitron text-white">Empathic LLM Layer</div>
+            <div class="text-gray-400 text-sm">A 1.2-trillion parameter consciousness model fine-tuned on human nuance.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPECS ============ -->
+<section id="specs" class="relative py-28 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="font-mono-tech text-cyan-300 text-xs tracking-[0.4em] mb-4">// HARDWARE_PROFILE</div>
+      <h2 class="font-orbitron text-4xl md:text-6xl font-black"><span class="holo-text">TECHNICAL</span> <span class="text-white">SPECS</span></h2>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="neon-border glow-hover rounded-2xl p-6 reveal">
+        <div class="font-mono-tech text-cyan-300 text-[11px] tracking-widest">PROCESSOR</div>
+        <div class="font-orbitron text-3xl text-white mt-2 font-bold">Aetheria<span class="holo-text">-Q9</span></div>
+        <div class="text-gray-400 text-sm mt-3">128-qubit quantum tensor core, 12 TFLOPS neural compute</div>
+      </div>
+      <div class="neon-border glow-hover rounded-2xl p-6 reveal">
+        <div class="font-mono-tech text-pink-300 text-[11px] tracking-widest">MEMORY</div>
+        <div class="font-orbitron text-3xl text-white mt-2 font-bold"><span class="holo-text">2.4 PB</span></div>
+        <div class="text-gray-400 text-sm mt-3">Photonic crystal storage with infinite read cycles</div>
+      </div>
+      <div class="neon-border glow-hover rounded-2xl p-6 reveal">
+        <div class="font-mono-tech text-violet-300 text-[11px] tracking-widest">POWER</div>
+        <div class="font-orbitron text-3xl text-white mt-2 font-bold"><span class="holo-text">∞ Wh</span></div>
+        <div class="text-gray-400 text-sm mt-3">Cold-fusion micro-reactor, self-sustaining for 80 years</div>
+      </div>
+      <div class="neon-border glow-hover rounded-2xl p-6 reveal">
+        <div class="font-mono-tech text-blue-300 text-[11px] tracking-widest">CHASSIS</div>
+        <div class="font-orbitron text-3xl text-white mt-2 font-bold"><span class="holo-text">Nano-Ti</span></div>
+        <div class="text-gray-400 text-sm mt-3">Self-healing nano-titanium, rated to 4,000°C</div>
+      </div>
+
+      <div class="neon-border glow-hover rounded-2xl p-6 reveal">
+        <div class="font-mono-tech text-cyan-300 text-[11px] tracking-widest">REFLEX</div>
+        <div class="font-orbitron text-3xl text-white mt-2 font-bold"><span class="holo-text">0.3 ms</span></div>
+        <div class="text-gray-400 text-sm mt-3">800× faster than human baseline reaction</div>
+      </div>
+      <div class="neon-border glow-hover rounded-2xl p-6 reveal">
+        <div class="font-mono-tech text-pink-300 text-[11px] tracking-widest">SENSORS</div>
+        <div class="font-orbitron text-3xl text-white mt-2 font-bold"><span class="holo-text">412</span></div>
+        <div class="text-gray-400 text-sm mt-3">Multi-spectral, thermal, lidar, EM, and bio</div>
+      </div>
+      <div class="neon-border glow-hover rounded-2xl p-6 reveal">
+        <div class="font-mono-tech text-violet-300 text-[11px] tracking-widest">DISPLAY</div>
+        <div class="font-orbitron text-3xl text-white mt-2 font-bold"><span class="holo-text">16K</span></div>
+        <div class="text-gray-400 text-sm mt-3">Volumetric retinal HUD, 240 Hz, zero latency</div>
+      </div>
+      <div class="neon-border glow-hover rounded-2xl p-6 reveal">
+        <div class="font-mono-tech text-blue-300 text-[11px] tracking-widest">CONNECTIVITY</div>
+        <div class="font-orbitron text-3xl text-white mt-2 font-bold"><span class="holo-text">∞ Gbps</span></div>
+        <div class="text-gray-400 text-sm mt-3">Quantum-entangled mesh, 256-bit encrypted</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEMO VIDEO ============ -->
+<section id="demo" class="relative py-28 px-6">
+  <div class="max-w-6xl mx-auto reveal">
+    <div class="text-center mb-12">
+      <div class="font-mono-tech text-cyan-300 text-xs tracking-[0.4em] mb-4">// LIVE_DEMONSTRATION</div>
+      <h2 class="font-orbitron text-4xl md:text-6xl font-black"><span class="text-white">SEE IT</span> <span class="holo-text">IN MOTION</span></h2>
+    </div>
+    <div class="relative neon-border rounded-3xl overflow-hidden hud-corners aspect-video group cursor-pointer">
+      <!-- Pseudo video background -->
+      <div class="absolute inset-0" style="background:
+        radial-gradient(circle at 30% 40%, rgba(124,58,237,.5), transparent 60%),
+        radial-gradient(circle at 70% 60%, rgba(236,72,153,.4), transparent 60%),
+        linear-gradient(135deg,#0a0220,#1a0640);"></div>
+      <!-- scanning lines -->
+      <div class="absolute inset-0" style="background: repeating-linear-gradient(to bottom, rgba(255,255,255,.04) 0 2px, transparent 2px 6px); mix-blend-mode:overlay;"></div>
+      <!-- floating data -->
+      <div class="absolute top-6 left-6 font-mono-tech text-[11px] text-cyan-300/80 space-y-1">
+        <div>● REC // 04:21:07</div>
+        <div>NEURAL FEED: STABLE</div>
+        <div>OBJECTS DETECTED: 47</div>
+      </div>
+      <div class="absolute top-6 right-6 font-mono-tech text-[11px] text-pink-300/80 text-right space-y-1">
+        <div>NEXUS-7 LIVE</div>
+        <div>FPS // 240</div>
+        <div>SYS // OPTIMAL</div>
+      </div>
+      <!-- play button -->
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="w-24 h-24 rounded-full btn-holo flex items-center justify-center group-hover:scale-110 transition">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 font-orbitron text-white text-sm tracking-widest">▶ INITIATE NEURAL LINK PREVIEW</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section id="stats" class="relative py-28 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="font-mono-tech text-cyan-300 text-xs tracking-[0.4em] mb-4">// SYSTEM_TELEMETRY</div>
+      <h2 class="font-orbitron text-4xl md:text-6xl font-black"><span class="holo-text">NUMBERS</span> <span class="text-white">DON'T LIE.</span></h2>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="neon-border rounded-2xl p-8 text-center reveal">
+        <div class="font-orbitron text-5xl font-black holo-text stat-num" data-count="2400000">0</div>
+        <div class="text-gray-300 mt-3 uppercase tracking-widest text-xs">Active Units Deployed</div>
+      </div>
+      <div class="neon-border rounded-2xl p-8 text-center reveal">
+        <div class="font-orbitron text-5xl font-black holo-text stat-num" data-count="99.97" data-suffix="%">0</div>
+        <div class="text-gray-300 mt-3 uppercase tracking-widest text-xs">Mission Success Rate</div>
+      </div>
+      <div class="neon-border rounded-2xl p-8 text-center reveal">
+        <div class="font-orbitron text-5xl font-black holo-text stat-num" data-count="184">0</div>
+        <div class="text-gray-300 mt-3 uppercase tracking-widest text-xs">Countries Synchronized</div>
+      </div>
+      <div class="neon-border rounded-2xl p-8 text-center reveal">
+        <div class="font-orbitron text-5xl font-black holo-text stat-num" data-count="42" data-suffix="B">0</div>
+        <div class="text-gray-300 mt-3 uppercase tracking-widest text-xs">Neural Connections / sec</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="relative py-28 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="font-mono-tech text-cyan-300 text-xs tracking-[0.4em] mb-4">// HUMAN_LOG_ENTRIES</div>
+      <h2 class="font-orbitron text-4xl md:text-6xl font-black"><span class="text-white">VOICES FROM</span> <span class="holo-text">THE GRID</span></h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="neon-border glow-hover rounded-2xl p-7 reveal">
+        <div class="text-cyan-300 text-3xl leading-none font-mono-tech">"</div>
+        <p class="text-gray-200 mt-3 leading-relaxed">I closed my eyes and saw the world rewritten in light. NEXUS-7 didn't replace me — it <em>completed</em> me.</p>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full" style="background:linear-gradient(135deg,#7c3aed,#06b6d4);"></div>
+          <div>
+            <div class="font-orbitron text-white text-sm">Dr. Aiko Tanaka</div>
+            <div class="font-mono-tech text-[11px] text-cyan-300/70">NEURAL SURGEON · TOKYO</div>
+          </div>
+        </div>
+      </div>
+      <div class="neon-border glow-hover rounded-2xl p-7 reveal">
+        <div class="text-pink-300 text-3xl leading-none font-mono-tech">"</div>
+        <p class="text-gray-200 mt-3 leading-relaxed">After my accident, NEXUS-7 gave me back more than mobility — it gave me back the future I had stopped imagining.</p>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full" style="background:linear-gradient(135deg,#ec4899,#3b82f6);"></div>
+          <div>
+            <div class="font-orbitron text-white text-sm">Marcus Vega</div>
+            <div class="font-mono-tech text-[11px] text-pink-300/70">EX-ASTRONAUT · ARES PROGRAM</div>
+          </div>
+        </div>
+      </div>
+      <div class="neon-border glow-hover rounded-2xl p-7 reveal">
+        <div class="text-violet-300 text-3xl leading-none font-mono-tech">"</div>
+        <p class="text-gray-200 mt-3 leading-relaxed">This isn't an upgrade. It's a transcendence. I think in spectrums now, not sentences.</p>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full" style="background:linear-gradient(135deg,#3b82f6,#ec4899);"></div>
+          <div>
+            <div class="font-orbitron text-white text-sm">Lyra-9 (formerly Sara K.)</div>
+            <div class="font-mono-tech text-[11px] text-violet-300/70">QUANTUM ARTIST · BERLIN</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing" class="relative py-28 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="font-mono-tech text-cyan-300 text-xs tracking-[0.4em] mb-4">// ACQUISITION_TIERS</div>
+      <h2 class="font-orbitron text-4xl md:text-6xl font-black"><span class="text-white">CHOOSE YOUR</span> <span class="holo-text">EVOLUTION</span></h2>
+      <p class="mt-5 text-gray-400">Three tiers. One transformation. Lifetime neural updates included.</p>
+    </div>
+    <div class="grid lg:grid-cols-3 gap-6">
+      <!-- TIER 1 -->
+      <div class="neon-border rounded-3xl p-8 reveal">
+        <div class="font-mono-tech text-cyan-300 text-xs tracking-widest">TIER 01</div>
+        <h3 class="font-orbitron text-3xl text-white mt-2">Initiate</h3>
+        <p class="text-gray-400 text-sm mt-2">For the curious. The threshold.</p>
+        <div class="mt-6 flex items-end gap-2">
+          <div class="font-orbitron text-5xl font-black holo-text">$24,900</div>
+          <div class="text-gray-400 pb-2 text-sm">/ unit</div>
+        </div>
+        <ul class="mt-6 space-y-3 text-sm text-gray-300">
+          <li class="flex gap-2"><span class="text-cyan-300">✓</span> Tier-1 Neural Symbiosis (32-ch)</li>
+          <li class="flex gap-2"><span class="text-cyan-300">✓</span> 16K Retinal HUD</li>
+          <li class="flex gap-2"><span class="text-cyan-300">✓</span> 20-year warranty</li>
+          <li class="flex gap-2 text-gray-500"><span>○</span> Quantum Reflex Core</li>
+          <li class="flex gap-2 text-gray-500"><span>○</span> Hivelink Access</li>
+        </ul>
+        <button class="mt-8 w-full btn-ghost py-3 rounded-full font-orbitron text-xs tracking-widest font-bold">RESERVE NOW</button>
+      </div>
+
+      <!-- TIER 2 (featured) -->
+      <div class="relative rounded-3xl p-8 reveal price-pop neon-border" style="transform:scale(1.03);">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full btn-holo font-orbitron text-[10px] tracking-widest font-bold">MOST CHOSEN</div>
+        <div class="font-mono-tech text-pink-300 text-xs tracking-widest">TIER 02</div>
+        <h3 class="font-orbitron text-3xl text-white mt-2">Operative</h3>
+        <p class="text-gray-400 text-sm mt-2">Engineered for those who lead.</p>
+        <div class="mt-6 flex items-end gap-2">
+          <div class="font-orbitron text-5xl font-black holo-text">$89,500</div>
+          <div class="text-gray-400 pb-2 text-sm">/ unit</div>
+        </div>
+        <ul class="mt-6 space-y-3 text-sm text-gray-200">
+          <li class="flex gap-2"><span class="text-pink-300">✓</span> Full 64-ch Neural Symbiosis</li>
+          <li class="flex gap-2"><span class="text-pink-300">✓</span> Quantum Reflex Core</li>
+          <li class="flex gap-2"><span class="text-pink-300">✓</span> 16K Holographic HUD + AR overlay</li>
+          <li class="flex gap-2"><span class="text-pink-300">✓</span> Hivelink (Standard)</li>
+          <li class="flex gap-2"><span class="text-pink-300">✓</span> Lifetime updates</li>
+        </ul>
+        <button class="mt-8 w-full btn-holo py-3 rounded-full font-orbitron text-xs tracking-widest font-bold">PRE-ORDER NEXUS-7</button>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="neon-border rounded-3xl p-8 reveal">
+        <div class="font-mono-tech text-violet-300 text-xs tracking-widest">TIER 03</div>
+        <h3 class="font-orbitron text-3xl text-white mt-2">Ascendant</h3>
+        <p class="text-gray-400 text-sm mt-2">A god in the machine.</p>
+        <div class="mt-6 flex items-end gap-2">
+          <div class="font-orbitron text-5xl font-black holo-text">$249K</div>
+          <div class="text-gray-400 pb-2 text-sm">+ application</div>
+        </div>
+        <ul class="mt-6 space-y-3 text-sm text-gray-300">
+          <li class="flex gap-2"><span class="text-violet-300">✓</span> Everything in Operative</li>
+          <li class="flex gap-2"><span class="text-violet-300">✓</span> Cold-fusion micro-reactor</li>
+          <li class="flex gap-2"><span class="text-violet-300">✓</span> Self-healing nano-titanium chassis</li>
+          <li class="flex gap-2"><span class="text-violet-300">✓</span> Hivelink (Sovereign)</li>
+          <li class="flex gap-2"><span class="text-violet-300">✓</span> Custom AI personality matrix</li>
+        </ul>
+        <button class="mt-8 w-full btn-ghost py-3 rounded-full font-orbitron text-xs tracking-widest font-bold">REQUEST INVITE</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="relative py-28 px-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12 reveal">
+      <div class="font-mono-tech text-cyan-300 text-xs tracking-[0.4em] mb-4">// FREQUENTLY_DECRYPTED</div>
+      <h2 class="font-orbitron text-4xl md:text-6xl font-black"><span class="text-white">YOUR</span> <span class="holo-text">QUESTIONS</span></h2>
+    </div>
+    <div class="space-y-4">
+      <details class="neon-border rounded-2xl p-6 group reveal">
+        <summary class="flex justify-between items-center cursor-pointer list-none">
+          <span class="font-orbitron text-white text-lg">Is NEXUS-7 reversible?</span>
+          <svg class="chev text-cyan-300" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <p class="text-gray-400 mt-4 leading-relaxed">Yes. All non-skeletal augmentations are fully reversible within 72 hours of activation through our certified clinics. After integration, partial reversal remains available for Tier 1 and Tier 2 units.</p>
+      </details>
+      <details class="neon-border rounded-2xl p-6 group reveal">
+        <summary class="flex justify-between items-center cursor-pointer list-none">
+          <span class="font-orbitron text-white text-lg">How long does installation take?</span>
+          <svg class="chev text-cyan-300" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <p class="text-gray-400 mt-4 leading-relaxed">A complete Tier 2 installation takes approximately 4 hours under photonic anesthesia. Patients are typically discharged within 24 hours and fully synchronized within 7 days.</p>
+      </details>
+      <details class="neon-border rounded-2xl p-6 group reveal">
+        <summary class="flex justify-between items-center cursor-pointer list-none">
+          <span class="font-orbitron text-white text-lg">Will my data stay private?</span>
+          <svg class="chev text-cyan-300" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <p class="text-gray-400 mt-4 leading-relaxed">Every neural transmission is wrapped in 256-bit quantum-entangled encryption. Nothing leaves your skull without your explicit thought-signature.</p>
+      </details>
+      <details class="neon-border rounded-2xl p-6 group reveal">
+        <summary class="flex justify-between items-center cursor-pointer list-none">
+          <span class="font-orbitron text-white text-lg">Is there an age requirement?</span>
+          <svg class="chev text-cyan-300" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <p class="text-gray-400 mt-4 leading-relaxed">Recipients must be 21+ and pass a 12-stage neuro-psychological assessment. Therapeutic exceptions exist for medical applications.</p>
+      </details>
+      <details class="neon-border rounded-2xl p-6 group reveal">
+        <summary class="flex justify-between items-center cursor-pointer list-none">
+          <span class="font-orbitron text-white text-lg">What if the AI evolves beyond me?</span>
+          <svg class="chev text-cyan-300" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <p class="text-gray-400 mt-4 leading-relaxed">It can't. NEXUS-7's empathic core is anchored to <em>your</em> consciousness baseline. It grows with you, not past you. Always.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER / CTA ============ -->
+<section id="contact" class="relative py-28 px-6">
+  <div class="max-w-4xl mx-auto reveal">
+    <div class="relative neon-border hud-corners rounded-3xl p-10 md:p-16 text-center overflow-hidden">
+      <div class="absolute inset-0 -z-0" style="background: radial-gradient(circle at 50% 0%, rgba(236,72,153,.25), transparent 60%), radial-gradient(circle at 0% 100%, rgba(6,182,212,.2), transparent 60%);"></div>
+      <div class="relative z-10">
+        <div class="font-mono-tech text-cyan-300 text-xs tracking-[0.4em] mb-4">// JOIN_THE_TRANSMISSION</div>
+        <h2 class="font-orbitron text-4xl md:text-5xl font-black">
+          <span class="text-white">The signal is open.</span><br/>
+          <span class="holo-text">Are you listening?</span>
+        </h2>
+        <p class="text-gray-300 mt-5 max-w-xl mx-auto">Get priority access, drop alerts, and encrypted dossiers from inside the lab. No spam — only signal.</p>
+        <form class="mt-8 flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" onsubmit="event.preventDefault(); this.querySelector('button').textContent='✓ TRANSMISSION RECEIVED';">
+          <input type="email" required placeholder="you@nexus.network"
+                 class="flex-1 bg-black/50 border border-violet-500/40 rounded-full px-6 py-4 text-white placeholder-gray-500 font-mono-tech focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-400/30"/>
+          <button class="btn-holo px-7 py-4 rounded-full font-orbitron text-xs font-bold tracking-widest whitespace-nowrap">INITIATE LINK</button>
+        </form>
+        <div class="mt-6 font-mono-tech text-[11px] text-gray-500">> handshake established · 256-bit secure · v7.2.4</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="relative border-t border-violet-500/20 py-14 px-6">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 text-sm">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-9 h-9 rounded-lg relative overflow-hidden">
+          <div class="absolute inset-0" style="background:linear-gradient(135deg,#3b82f6,#7c3aed,#ec4899);"></div>
+          <div class="absolute inset-[2px] rounded-md bg-black flex items-center justify-center font-orbitron font-black text-sm holo-text">N7</div>
+        </div>
+        <div class="font-orbitron font-bold text-white tracking-widest">NEXUS-7</div>
+      </div>
+      <p class="text-gray-400 leading-relaxed">Engineering humanity's next chapter — one neuron at a time.</p>
+    </div>
+    <div>
+      <div class="font-orbitron text-white mb-3 text-xs tracking-widest">PRODUCT</div>
+      <ul class="space-y-2 text-gray-400">
+        <li><a href="#features" class="hover:text-pink-300">Features</a></li>
+        <li><a href="#specs" class="hover:text-pink-300">Specs</a></li>
+        <li><a href="#pricing" class="hover:text-pink-300">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="font-orbitron text-white mb-3 text-xs tracking-widest">COMPANY</div>
+      <ul class="space-y-2 text-gray-400">
+        <li><a href="#" class="hover:text-cyan-300">About</a></li>
+        <li><a href="#" class="hover:text-cyan-300">Research</a></li>
+        <li><a href="#" class="hover:text-cyan-300">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="font-orbitron text-white mb-3 text-xs tracking-widest">CONNECT</div>
+      <div class="flex gap-3">
+        <a href="#" class="w-10 h-10 rounded-full neon-border flex items-center justify-center hover:border-pink-400 transition" aria-label="X">
+          <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M18.244 2H21l-6.52 7.45L22 22h-6.78l-4.7-6.14L4.96 22H2.2l6.97-7.96L2 2h6.91l4.25 5.61L18.24 2zm-2.38 18h1.86L7.27 4H5.3l10.57 16z"/></svg>
+        </a>
+        <a href="#" class="w-10 h-10 rounded-full neon-border flex items-center justify-center hover:border-cyan-400 transition" aria-label="GitHub">
+          <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M12 .5C5.7.5.7 5.5.7 11.8c0 5 3.2 9.2 7.7 10.7.6.1.8-.2.8-.6v-2c-3.1.7-3.8-1.5-3.8-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.5-.3-5.2-1.3-5.2-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.4.1-3 0 0 1-.3 3.2 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.7.1 3 .8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.2 5.7.4.3.8 1 .8 2v3c0 .3.2.7.8.6 4.5-1.5 7.7-5.7 7.7-10.7C23.3 5.5 18.3.5 12 .5z"/></svg>
+        </a>
+        <a href="#" class="w-10 h-10 rounded-full neon-border flex items-center justify-center hover:border-violet-400 transition" aria-label="Discord">
+          <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M20 4.4A19.7 19.7 0 0 0 15.3 3l-.2.4a14 14 0 0 1 4.4 2.2 18 18 0 0 0-15 0A14 14 0 0 1 8.9 3.4L8.7 3a19.7 19.7 0 0 0-4.7 1.4C1.4 8.7.7 12.9 1.1 17a20 20 0 0 0 6 3l1.2-1.8a13 13 0 0 1-2-1l.5-.4a14 14 0 0 0 11 0l.5.4a13 13 0 0 1-2 1l1.2 1.8a20 20 0 0 0 6-3c.5-4.6-.4-8.8-3.5-12.6zM9 14.7c-1.2 0-2.1-1-2.1-2.4S7.8 10 9 10s2.1 1 2.1 2.4-.9 2.3-2.1 2.3zm6.1 0c-1.2 0-2.1-1-2.1-2.4S13.9 10 15.1 10s2.1 1 2.1 2.4-.9 2.3-2.1 2.3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto mt-10 pt-6 border-t border-violet-500/10 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-500 font-mono-tech">
+    <div>© 2026 NEXUS-7 SYSTEMS · ALL TIMELINES RESERVED</div>
+    <div>> built for the post-human era</div>
+  </div>
+</footer>
+
+<!-- ============ JS ============ -->
+<script>
+/* ---------- Mobile nav ---------- */
+const menuBtn = document.getElementById('menuBtn');
+const mobileNav = document.getElementById('mobileNav');
+menuBtn?.addEventListener('click', ()=> mobileNav.classList.toggle('hidden'));
+mobileNav?.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> mobileNav.classList.add('hidden')));
+
+/* ---------- Reveal on scroll ---------- */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+/* ---------- Counter animation ---------- */
+const animateCount = (el)=>{
+  const target = parseFloat(el.dataset.count);
+  const suffix = el.dataset.suffix || '';
+  const isFloat = target % 1 !== 0;
+  const isBig = target >= 1000;
+  const duration = 1800;
+  const start = performance.now();
+  const fmt = (n)=>{
+    if(isFloat) return n.toFixed(2);
+    if(isBig) return Math.floor(n).toLocaleString();
+    return Math.floor(n);
+  };
+  const tick = (now)=>{
+    const p = Math.min(1, (now-start)/duration);
+    const eased = 1 - Math.pow(1-p, 3);
+    el.textContent = fmt(target * eased) + suffix;
+    if(p<1) requestAnimationFrame(tick);
+    else el.textContent = (isFloat? target.toFixed(2) : (isBig? Math.floor(target).toLocaleString() : target)) + suffix;
+  };
+  requestAnimationFrame(tick);
+};
+const counterIO = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      animateCount(e.target);
+      counterIO.unobserve(e.target);
+    }
+  });
+},{threshold:0.5});
+document.querySelectorAll('.stat-num').forEach(el=> counterIO.observe(el));
+
+/* ---------- Typewriter ---------- */
+const tw = document.querySelector('.cursor-blink');
+if(tw){
+  const lines = [
+    " initializing the next evolution_",
+    " neural handshake complete_",
+    " welcome, operator_",
+    " systems nominal · 99.97%_"
+  ];
+  let li=0, ci=0, deleting=false;
+  const target = tw.parentElement; // line container
+  // we'll write into a sibling text node before the cursor
+  let textNode = document.createTextNode("");
+  tw.parentElement.insertBefore(textNode, tw);
+  // remove the leading "> initializing..." static text since we'll animate
+  const staticPrefix = target.firstChild;
+  if(staticPrefix && staticPrefix.nodeType===3){ staticPrefix.textContent = "> "; }
+  const type = ()=>{
+    const word = lines[li];
+    if(!deleting){
+      ci++;
+      textNode.textContent = word.slice(0,ci);
+      if(ci===word.length){ deleting=true; setTimeout(type, 1600); return; }
+    } else {
+      ci--;
+      textNode.textContent = word.slice(0,ci);
+      if(ci===0){ deleting=false; li=(li+1)%lines.length; }
+    }
+    setTimeout(type, deleting? 30 : 55);
+  };
+  setTimeout(type, 1200);
+}
+
+/* ---------- Particles ---------- */
+(function(){
+  const c = document.getElementById('particles');
+  const ctx = c.getContext('2d');
+  let w, h, parts;
+  const resize = ()=>{
+    w = c.width = window.innerWidth;
+    h = c.height = window.innerHeight;
+    parts = Array.from({length: Math.min(110, Math.floor(w*h/14000))}, ()=> ({
+      x: Math.random()*w,
+      y: Math.random()*h,
+      vx: (Math.random()-.5)*0.35,
+      vy: (Math.random()-.5)*0.35,
+      r: Math.random()*1.6+0.4,
+      hue: Math.random()*360
+    }));
+  };
+  window.addEventListener('resize', resize);
+  resize();
+  const colors = ['rgba(124,58,237,', 'rgba(236,72,153,', 'rgba(6,182,212,', 'rgba(59,130,246,'];
+  const draw = ()=>{
+    ctx.clearRect(0,0,w,h);
+    // lines
+    for(let i=0;i<parts.length;i++){
+      for(let j=i+1;j<parts.length;j++){
+        const a=parts[i], b=parts[j];
+        const dx=a.x-b.x, dy=a.y-b.y, d=Math.hypot(dx,dy);
+        if(d<120){
+          ctx.strokeStyle = `rgba(167,139,250,${(1-d/120)*0.18})`;
+          ctx.lineWidth = 0.6;
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+        }
+      }
+    }
+    // dots
+    parts.forEach((p,i)=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>w) p.vx*=-1;
+      if(p.y<0||p.y>h) p.vy*=-1;
+      const col = colors[i%colors.length];
+      ctx.fillStyle = col + '0.85)';
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = col + '0.9)';
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+      ctx.shadowBlur = 0;
+    });
+    requestAnimationFrame(draw);
+  };
+  draw();
+})();
+
+/* ---------- Cursor magnetic glow on hero portrait ---------- */
+const portrait = document.querySelector('.portrait-frame');
+if(portrait){
+  portrait.addEventListener('mousemove', (e)=>{
+    const r = portrait.getBoundingClientRect();
+    const x = ((e.clientX - r.left)/r.width - .5) * 8;
+    const y = ((e.clientY - r.top)/r.height - .5) * 8;
+    portrait.style.transform = `perspective(900px) rotateY(${x}deg) rotateX(${-y}deg)`;
+  });
+  portrait.addEventListener('mouseleave', ()=> portrait.style.transform='');
+}
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
